@@ -36,40 +36,8 @@ typedef struct {
     // Dispose of any resources that can be recreated.
 }
 
+-(SampleInfo)printFloatDataFromAudioFile:(NSString*)name{
 
--(void)extractAudioFileFromURL:(NSURL*)nsurl{
-    CFURLRef url = (__bridge CFURLRef)nsurl;
-    ExtAudioFileRef eaf;
-    OSStatus err = ExtAudioFileOpenURL((CFURLRef)url, &eaf);
-    if(noErr != err){
-        /* handle error */
-    }
-    
-    AudioStreamBasicDescription format;
-    format.mSampleRate = 44100;
-//    format.mFormatID = kAudioFormatLinearPCM;
-//    format.mFormatFlags = kAudioFormatFormatFlagIsPacked;
-//    format.mBitsPerChannel = 16;
-    format.mFormatID = kAudioFormatLinearPCM;
-    format.mFormatFlags = kAudioFormatFlagsNativeFloatPacked;
-    format.mBitsPerChannel = 32;
-    
-    format.mChannelsPerFrame = 2;
-    format.mBytesPerFrame = format.mChannelsPerFrame * 2;
-    format.mFramesPerPacket = 1;
-    format.mBytesPerPacket = format.mFramesPerPacket * format.mBytesPerFrame;
-    
-    err = ExtAudioFileSetProperty(eaf, kExtAudioFileProperty_ClientDataFormat, sizeof(format), &format);
-    
-    /* Read the file contents using ExtAudioFileRead */
-    
-}
-
-
-
--(SampleInfo)printFloatDataFromAudioFile{
-    
-    NSString *  name = @"sin";  //YOUR FILE NAME
     NSString * source = [[NSBundle mainBundle] pathForResource:name ofType:@"wav"]; // SPECIFY YOUR FILE FORMAT
     
     const char *cString = [source cStringUsingEncoding:NSASCIIStringEncoding];
@@ -158,9 +126,13 @@ typedef struct {
 -(void)performFFT{
     // Code taken from: http://batmobile.blogs.ilrt.org/fourier-transforms-on-an-iphone/
     
-    SampleInfo sampleInfo = [self printFloatDataFromAudioFile];
+//    SampleInfo sampleInfo = [self printFloatDataFromAudioFile:@"sin_110"];
+//    SampleInfo sampleInfo = [self printFloatDataFromAudioFile:@"sin_220"];
+//    SampleInfo sampleInfo = [self printFloatDataFromAudioFile:@"sin_440"];
+    SampleInfo sampleInfo = [self printFloatDataFromAudioFile:@"sweep"];
+//    SampleInfo sampleInfo = [self printFloatDataFromAudioFile:@"white"];
     float *samples = sampleInfo.samples;
-    int numSamples = sampleInfo.size;
+    int numSamples = 2048;//1024;
 
     
     // Setup the length
@@ -194,10 +166,18 @@ typedef struct {
     //Convert COMPLEX_SPLIT A result to magnitudes
     float *amp = malloc(sizeof(float) * numSamples);
     amp[0] = A.realp[0]/(numSamples*2);
+    float max = 0;
+    int indexOfMax = -1;
     for(int i=1; i<numSamples; i++) {
         amp[i]=A.realp[i]*A.realp[i]+A.imagp[i]*A.imagp[i];
-        printf("i[%ld]: %f ", (long)i, amp[i]);
+        printf("i[%ld]: %.1f %ldHz \n", (long)i, amp[i], (long)22000 * i/numSamples);
+        
+        if(amp[i] > max) {
+            max = amp[i];
+            indexOfMax = i;
+        }
     }
+    printf("max value of %f at index %ld which is %f way though", max, (long)indexOfMax, (float)(indexOfMax / (float)numSamples));
 
 }
 

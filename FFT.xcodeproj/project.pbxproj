@@ -15,8 +15,10 @@
 		C6F6B0E819AE5F4A0021F945 /* FFTTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C6F6B0E719AE5F4A0021F945 /* FFTTests.m */; };
 		C6F6B0F419AE5FB10021F945 /* white.wav in Resources */ = {isa = PBXBuildFile; fileRef = C6F6B0F119AE5FB10021F945 /* white.wav */; };
 		C6F6B0F519AE5FB10021F945 /* sweep.wav in Resources */ = {isa = PBXBuildFile; fileRef = C6F6B0F219AE5FB10021F945 /* sweep.wav */; };
-		C6F6B0F619AE5FB10021F945 /* sin.wav in Resources */ = {isa = PBXBuildFile; fileRef = C6F6B0F319AE5FB10021F945 /* sin.wav */; };
 		C6F6B0F819AE5FBA0021F945 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6F6B0F719AE5FBA0021F945 /* Accelerate.framework */; };
+		C6F6B0FC19AE71FB0021F945 /* sin_110.wav in Resources */ = {isa = PBXBuildFile; fileRef = C6F6B0F919AE71FB0021F945 /* sin_110.wav */; };
+		C6F6B0FD19AE71FB0021F945 /* sin_220.wav in Resources */ = {isa = PBXBuildFile; fileRef = C6F6B0FA19AE71FB0021F945 /* sin_220.wav */; };
+		C6F6B0FE19AE71FB0021F945 /* sin_440.wav in Resources */ = {isa = PBXBuildFile; fileRef = C6F6B0FB19AE71FB0021F945 /* sin_440.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,8 +46,10 @@
 		C6F6B0E719AE5F4A0021F945 /* FFTTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FFTTests.m; sourceTree = "<group>"; };
 		C6F6B0F119AE5FB10021F945 /* white.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = white.wav; sourceTree = "<group>"; };
 		C6F6B0F219AE5FB10021F945 /* sweep.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sweep.wav; sourceTree = "<group>"; };
-		C6F6B0F319AE5FB10021F945 /* sin.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sin.wav; sourceTree = "<group>"; };
 		C6F6B0F719AE5FBA0021F945 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		C6F6B0F919AE71FB0021F945 /* sin_110.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sin_110.wav; sourceTree = "<group>"; };
+		C6F6B0FA19AE71FB0021F945 /* sin_220.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sin_220.wav; sourceTree = "<group>"; };
+		C6F6B0FB19AE71FB0021F945 /* sin_440.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sin_440.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,8 +94,10 @@
 			isa = PBXGroup;
 			children = (
 				C6F6B0F119AE5FB10021F945 /* white.wav */,
+				C6F6B0F919AE71FB0021F945 /* sin_110.wav */,
+				C6F6B0FA19AE71FB0021F945 /* sin_220.wav */,
+				C6F6B0FB19AE71FB0021F945 /* sin_440.wav */,
 				C6F6B0F219AE5FB10021F945 /* sweep.wav */,
-				C6F6B0F319AE5FB10021F945 /* sin.wav */,
 				C6F6B0D219AE5F4A0021F945 /* AppDelegate.h */,
 				C6F6B0D319AE5F4A0021F945 /* AppDelegate.m */,
 				C6F6B0D519AE5F4A0021F945 /* ViewController.h */,
@@ -209,11 +215,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C6F6B0FE19AE71FB0021F945 /* sin_440.wav in Resources */,
+				C6F6B0FD19AE71FB0021F945 /* sin_220.wav in Resources */,
 				C6F6B0DA19AE5F4A0021F945 /* Main.storyboard in Resources */,
 				C6F6B0F519AE5FB10021F945 /* sweep.wav in Resources */,
+				C6F6B0FC19AE71FB0021F945 /* sin_110.wav in Resources */,
 				C6F6B0DC19AE5F4A0021F945 /* Images.xcassets in Resources */,
 				C6F6B0F419AE5FB10021F945 /* white.wav in Resources */,
-				C6F6B0F619AE5FB10021F945 /* sin.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
